@@ -34,6 +34,14 @@ public final class FilmContract {
 
         public static final String _ID = BaseColumns._ID;
 
+        public static final String COLUMN_BRAND = "brand";
+
+        public static final String COLUMN_SIZE = "size";
+
+        public static final String COLUMN_SPEED = "speed";
+
         public static final String COLUMN_DATE = "date";
+
+        public static final String COLUMN_DESCRIPTION = "description";
     }
 }
