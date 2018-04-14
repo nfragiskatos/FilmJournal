@@ -20,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.033"
         app:layout_constraintStart_toEndOf="@+id/imageView_film_roll"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Description" />
+        tools:text="This is a test change" />
 
     <ImageView
         android:id="@+id/imageView_film_roll"
