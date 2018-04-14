@@ -37,11 +37,10 @@
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/date_textView_film_roll"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/description_textView_film_roll"
         app:layout_constraintTop_toBottomOf="@+id/description_textView_film_roll"
         tools:text="Date" />
