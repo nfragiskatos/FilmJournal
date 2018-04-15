@@ -43,5 +43,22 @@ public final class FilmContract {
         public static final String COLUMN_DATE = "date";
 
         public static final String COLUMN_DESCRIPTION = "description";
+
+        /**
+         * Possible values for film size
+         */
+        public static final int SIZE_UNKNOWN = 0;
+        public static final int SIZE_35MM = 1;
+        public static final int SIZE_120 = 2;
+
+        public static boolean isValidSize(int size)
+        {
+            if (size >= SIZE_UNKNOWN && size <= SIZE_120)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

@@ -21,8 +21,8 @@ public class FilmDbHelper extends SQLiteOpenHelper {
     public static final String SQL_CREATE_FILM_ROLL_ENTRIES =
             "CREATE TABLE " + FilmRollEntry.TABLE_NAME + " ("
             + FilmRollEntry._ID                 + " INTEGER PRIMARY KEY AUTOINCREMENT"  + SQL_COMMA
-            + FilmRollEntry.COLUMN_BRAND        + " TEXT NOT NULL"                      + SQL_COMMA
-            + FilmRollEntry.COLUMN_SIZE         + " TEXT NOT NULL"                      + SQL_COMMA
+            + FilmRollEntry.COLUMN_BRAND        + " TEXT"                               + SQL_COMMA
+            + FilmRollEntry.COLUMN_SIZE         + " INTEGER"                            + SQL_COMMA
             + FilmRollEntry.COLUMN_SPEED        + " INTEGER"                            + SQL_COMMA
             + FilmRollEntry.COLUMN_DATE         + " TEXT"                               + SQL_COMMA
             + FilmRollEntry.COLUMN_DESCRIPTION  + " TEXT"
