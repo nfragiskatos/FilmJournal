@@ -162,7 +162,6 @@ public class FilmRollProvider extends ContentProvider {
         {
             case FILM_ROLL:
                 return updateFilmRoll(uri, contentValues, selection, selectionArgs);
-                break;
             case FILM_ROLL_ID:
                 selection = FilmRollEntry._ID + "=?";
                 selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
@@ -175,5 +174,20 @@ public class FilmRollProvider extends ContentProvider {
     private int updateFilmRoll(Uri uri, ContentValues contentValues, String selection, String[] selectionArgs)
     {
 
+        if (contentValues.size() == 0)
+        {
+            return 0;
+        }
+
+        SQLiteDatabase db = mFilmDbHelper.getWritableDatabase();
+
+        int rowsUpdated = db.update(FilmRollEntry.TABLE_NAME, contentValues, selection, selectionArgs);
+
+        if (rowsUpdated != 0)
+        {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        return rowsUpdated;
     }
 }
