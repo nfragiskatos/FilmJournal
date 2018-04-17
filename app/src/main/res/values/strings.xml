@@ -4,4 +4,10 @@
     <string name="description">Description</string>
 
     <string name="date">Date</string>
+
+    <string name="hint_film_roll_description">Description</string>
+
+    <string name="category_overview">Overview</string>
+
+    <string name="hint_film_roll_date">Date</string>
 </resources>
