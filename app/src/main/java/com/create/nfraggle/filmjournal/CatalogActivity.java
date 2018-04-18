@@ -8,6 +8,8 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -50,6 +52,25 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
         getLoaderManager().initLoader(FILM_ROLL_LOADER, null, this);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_catalog_activity, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        deleteAllFilmRoles();
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void deleteAllFilmRoles()
+    {
+        getContentResolver().delete(FilmContract.FilmRollEntry.CONTENT_URI, null, null);
     }
 
     @Override

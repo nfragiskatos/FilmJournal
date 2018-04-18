@@ -15,4 +15,6 @@
 
     <string name="empty_view_title_text">Where are all the pictures?!</string>
     <string name="empty_view_subtitle_text">Get started by adding a roll of film</string>
+
+    <string name="action_delete_all_film_rolls">Delete All Entries</string>
 </resources>
