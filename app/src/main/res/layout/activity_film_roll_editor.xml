@@ -28,7 +28,7 @@
         <!-- Label -->
         <TextView
             android:text="@string/category_overview"
-            style="@style/EditorFieldStyle"/>
+            style="@style/CategoryStyle"/>
 
         <!-- Input fields -->
         <LinearLayout
@@ -40,14 +40,14 @@
 
             <!-- Name field -->
             <EditText
-                android:id="@+id/edit_pet_name"
+                android:id="@+id/edit_film_roll_description"
                 android:hint="@string/hint_film_roll_description"
                 android:inputType="textCapWords"
                 style="@style/EditorFieldStyle"/>
 
             <!-- Breed field -->
             <EditText
-                android:id="@+id/edit_pet_breed"
+                android:id="@+id/edit_film_roll_date"
                 android:hint="@string/hint_film_roll_date"
                 android:inputType="date"
                 style="@style/EditorFieldStyle"/>
