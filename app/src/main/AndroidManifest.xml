@@ -24,6 +24,10 @@
                 android:value=".CatalogActivity"/>
 
         </activity>
+        <provider
+            android:authorities="com.create.nfraggle.filmjournal"
+            android:name=".data.FilmRollProvider"
+            android:exported="false"/>
     </application>
 
 </manifest>

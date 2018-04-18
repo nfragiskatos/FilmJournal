@@ -101,6 +101,7 @@ public class FilmRollProvider extends ContentProvider {
         /**
          * Do some data validation
          */
+        /**
         Integer size = contentValues.getAsInteger(FilmRollEntry.COLUMN_SIZE);
         if (!FilmRollEntry.isValidSize(size))
         {
@@ -112,6 +113,7 @@ public class FilmRollProvider extends ContentProvider {
         {
             throw new IllegalArgumentException("Not a valid film speed");
         }
+         */
 
         SQLiteDatabase db = mFilmDbHelper.getWritableDatabase();
 
