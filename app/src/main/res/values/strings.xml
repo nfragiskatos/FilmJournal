@@ -10,4 +10,6 @@
     <string name="category_overview">Overview</string>
 
     <string name="hint_film_roll_date">Date</string>
+
+    <string name="save_menu_item">Save</string>
 </resources>
