@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -38,7 +39,17 @@ public class FilmRollEditorActivity extends AppCompatActivity implements LoaderM
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        saveFilmRoll();
+        switch (item.getItemId())
+        {
+            case R.id.action_save:
+                saveFilmRoll();
+                finish();
+                return true;
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+
 
         return true;
     }
