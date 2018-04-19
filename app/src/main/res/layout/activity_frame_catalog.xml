@@ -3,22 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CatalogActivity">
+    tools:context=".FrameCatalogActivity">
 
     <ListView
-        android:id="@+id/list_view_film_roll"
+        android:id="@+id/list_view_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <!-- Empty view for the list -->
     <RelativeLayout
-        android:id="@+id/empty_view"
+        android:id="@+id/empty_view_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
 
         <TextView
-            android:id="@+id/empty_title_text"
+            android:id="@+id/empty_title_text_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -28,7 +28,7 @@
             android:textAppearance="?android:textAppearanceMedium"/>
 
         <TextView
-            android:id="@+id/empty_subtitle_text"
+            android:id="@+id/empty_subtitle_text_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/empty_title_text"
@@ -41,7 +41,7 @@
     </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
