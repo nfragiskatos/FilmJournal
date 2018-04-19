@@ -1,16 +1,19 @@
 package com.create.nfraggle.filmjournal;
 
 import android.app.LoaderManager;
+import android.content.ContentUris;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 
@@ -49,6 +52,16 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
         filmRollListView.setAdapter(mFilmRollCursorAdapter);
         filmRollListView.setEmptyView(emptyView);
+
+        filmRollListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Intent intent = new Intent(CatalogActivity.this, FilmRollEditorActivity.class);
+                Uri currentFilmRollUri = ContentUris.withAppendedId(FilmContract.FilmRollEntry.CONTENT_URI, id);
+                intent.setData(currentFilmRollUri);
+                startActivity(intent);
+            }
+        });
 
         getLoaderManager().initLoader(FILM_ROLL_LOADER, null, this);
 
