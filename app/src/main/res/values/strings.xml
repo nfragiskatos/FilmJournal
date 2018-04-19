@@ -20,4 +20,10 @@
 
     <string name="film_roll_editor_activity_title_new_roll">Add Film Roll</string>
     <string name="film_roll_editor_activity_title_edit_roll">Edit Film Roll</string>
+
+    <string name="action_update_film_roll_failed">Update film roll failed!</string>
+    <string name="action_update_film_roll_succeeded">Film roll updated!</string>
+
+    <string name="action_insert_film_roll_failed">Adding film roll failed!</string>
+    <string name="action_insert_film_roll_succeeded">Film roll added!</string>
 </resources>

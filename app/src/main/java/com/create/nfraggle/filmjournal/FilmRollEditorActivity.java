@@ -21,6 +21,8 @@ import com.create.nfraggle.filmjournal.data.FilmContract.FilmRollEntry;
 
 import com.create.nfraggle.filmjournal.data.FilmContract;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by Nicholas Fragiskatos on 4/17/2018.
  */
@@ -58,25 +60,49 @@ public class FilmRollEditorActivity extends AppCompatActivity implements LoaderM
 
     private void saveFilmRoll()
     {
+        Uri currentFilmRollUri = getIntent().getData();
         String description = mDescriptionEditText.getText().toString().trim();
         String date = mDateEditText.getText().toString().trim();
 
-        if (TextUtils.isEmpty(description) && TextUtils.isEmpty(date)) return;
+        if (currentFilmRollUri == null &&
+                TextUtils.isEmpty(description) &&
+                TextUtils.isEmpty(date))
+        {
+            return;
+        }
 
         ContentValues values = new ContentValues();
         values.put(FilmRollEntry.COLUMN_DESCRIPTION, description);
         values.put(FilmRollEntry.COLUMN_DATE, date);
 
-        Uri uri = getContentResolver().insert(FilmRollEntry.CONTENT_URI, values);
-
-        if (uri == null)
+        if (currentFilmRollUri == null)
         {
-            Toast.makeText(this, "Insert film roll failed!", Toast.LENGTH_LONG).show();
+            Uri uri = getContentResolver().insert(FilmRollEntry.CONTENT_URI, values);
+
+            if (uri == null)
+            {
+                Toast.makeText(this, R.string.action_insert_film_roll_failed, Toast.LENGTH_LONG).show();
+            }
+            else
+            {
+                Toast.makeText(this, R.string.action_insert_film_roll_succeeded, Toast.LENGTH_LONG).show();
+            }
         }
         else
         {
-            Toast.makeText(this, "Film roll saved!", Toast.LENGTH_LONG).show();
+            int rowsUpdated = getContentResolver().update(currentFilmRollUri, values, null, null);
+
+            if (rowsUpdated == 0)
+            {
+                Toast.makeText(this, R.string.action_update_film_roll_failed, Toast.LENGTH_LONG).show();
+            }
+            else
+            {
+                Toast.makeText(this, R.string.action_update_film_roll_succeeded, Toast.LENGTH_LONG).show();
+            }
         }
+
+
     }
 
     @Override
