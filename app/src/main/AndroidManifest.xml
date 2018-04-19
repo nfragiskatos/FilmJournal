@@ -24,6 +24,13 @@
                 android:value=".CatalogActivity"/>
 
         </activity>
+        <activity
+            android:name=".FrameCatalogActivity"
+            android:parentActivityName=".CatalogActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CatalogActivity"/>
+        </activity>
         <provider
             android:authorities="com.create.nfraggle.filmjournal"
             android:name=".data.FilmRollProvider"
