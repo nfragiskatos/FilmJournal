@@ -2,6 +2,8 @@ package com.create.nfraggle.filmjournal;
 
 import android.app.LoaderManager;
 import android.content.ContentValues;
+import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -82,6 +84,19 @@ public class FilmRollEditorActivity extends AppCompatActivity implements LoaderM
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_film_roll_editor);
 
+        Intent intent = getIntent();
+        Uri currentFilmRollUri = intent.getData();
+
+        if (currentFilmRollUri == null)
+        {
+            setTitle(R.string.film_roll_editor_activity_title_new_roll);
+        }
+        else
+        {
+            setTitle(R.string.film_roll_editor_activity_title_edit_roll);
+            getLoaderManager().initLoader(FILM_ROLL_LOADER, null, this);
+        }
+
         mDescriptionEditText = (EditText) findViewById(R.id.edit_film_roll_description);
         mDateEditText = (EditText) findViewById(R.id.edit_film_roll_date);
     }
@@ -89,16 +104,37 @@ public class FilmRollEditorActivity extends AppCompatActivity implements LoaderM
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
 
-        return null;
+        String projection[] = {
+                FilmRollEntry._ID,
+                FilmRollEntry.COLUMN_DESCRIPTION,
+                FilmRollEntry.COLUMN_DATE
+        };
+
+        Uri uri = getIntent().getData();
+
+        return new CursorLoader(this, uri, projection, null, null, null);
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
 
+        if (cursor == null || (cursor !=null && cursor.getCount() == 0))
+        {
+            return;
+        }
+
+        cursor.moveToFirst();
+        String description = cursor.getString(cursor.getColumnIndexOrThrow(FilmRollEntry.COLUMN_DESCRIPTION));
+        String date = cursor.getString(cursor.getColumnIndexOrThrow(FilmRollEntry.COLUMN_DATE));
+
+        mDateEditText.setText(date);
+        mDescriptionEditText.setText(description);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 
+        mDateEditText.setText(null);
+        mDescriptionEditText.setText(null);
     }
 }
